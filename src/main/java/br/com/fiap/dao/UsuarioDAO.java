@@ -127,10 +127,8 @@ public class UsuarioDAO {
                 usuarioTO.setPassword(rs.getString("senha"));
                 usuarioTO.setAge(rs.getInt("idade"));
             }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        } finally {
-            ConnectionFactory.closeConnection();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return usuarioTO;
     }
@@ -153,7 +151,7 @@ public class UsuarioDAO {
                 }
             }
 
-        } catch (SQLException e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         } finally {
             ConnectionFactory.closeConnection();
