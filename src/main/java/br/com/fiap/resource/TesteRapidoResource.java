@@ -7,6 +7,7 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Path("/testerapido")
@@ -32,7 +33,7 @@ public class TesteRapidoResource {
     @Path("/{id_usuario}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response findAllMyTests(@PathParam("id_usuario") long userId){
-        List<TesteRapidoTO> resultado = testeRapidoBO.findAllMyTests(userId);
+        ArrayList<TesteRapidoTO> resultado = testeRapidoBO.findAllMyTests(userId);
         Response.ResponseBuilder response = null;
 
         if (resultado != null) {

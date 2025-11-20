@@ -46,8 +46,8 @@ public class TesteRapidoDAO {
         return testeRapidoTO;
     }
 
-    public List<TesteRapidoTO> findAllMyTests(Long userId) {
-        List<TesteRapidoTO> tests = new ArrayList<>();
+    public ArrayList<TesteRapidoTO> findAllMyTests(Long userId) {
+        ArrayList<TesteRapidoTO> tests = new ArrayList<>();
         String sql = "select * from TESTE_RAPIDO where id_usuario = ?";
         try(PreparedStatement ps = ConnectionFactory.getConnection().prepareStatement(sql)) {
             ps.setLong(1, userId);

@@ -3,6 +3,7 @@ package br.com.fiap.bo;
 import br.com.fiap.dao.TesteRapidoDAO;
 import br.com.fiap.to.TesteRapidoTO;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TesteRapidoBO {
@@ -14,7 +15,7 @@ public class TesteRapidoBO {
         return testeRapidoDAO.saveTest(testeRapidoTO);
     }
 
-    public List<TesteRapidoTO> findAllMyTests(Long userId){
+    public ArrayList<TesteRapidoTO> findAllMyTests(Long userId){
         testeRapidoDAO = new TesteRapidoDAO();
 
         return testeRapidoDAO.findAllMyTests(userId);

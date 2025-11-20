@@ -23,10 +23,6 @@ public class UsuarioTO {
     @NotNull(message = "Idade é obrigatório")
     private Integer age;
 
-    @NotBlank(message = "Tipo de perfil é obrigatório")
-    @Size(min = 3, max = 25)
-    private String profileType;
-
     public UsuarioTO() {
     }
 
@@ -36,7 +32,6 @@ public class UsuarioTO {
         this.email = email;
         this.password = password;
         this.age = age;
-        this.profileType = profileType;
     }
 
     public Long getId() {
@@ -79,11 +74,4 @@ public class UsuarioTO {
         this.age = age;
     }
 
-    public String getProfileType() {
-        return profileType;
-    }
-
-    public void setProfileType(String profileType) {
-        this.profileType = profileType;
-    }
 }
