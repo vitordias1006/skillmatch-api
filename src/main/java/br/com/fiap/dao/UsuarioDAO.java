@@ -110,7 +110,7 @@ public class UsuarioDAO {
 
     public UsuarioTO findByEmailAndPassword(String email, String password) {
         UsuarioTO usuarioTO = null;
-        String sql = "SELECT * FROM user WHERE email = ? AND senha = ?";
+        String sql = "SELECT * FROM usuario WHERE email = ? AND senha = ?";
 
         try (PreparedStatement ps = ConnectionFactory.getConnection().prepareStatement(sql)) {
 
