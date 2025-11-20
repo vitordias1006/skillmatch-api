@@ -9,14 +9,13 @@ import java.sql.SQLException;
 public class UsuarioDAO {
 
     public UsuarioTO saveUser(UsuarioTO usuarioTO) {
-        String sql = "Insert into usuario (nome, email, senha, idade, tipo_perfil) values (?, ?, ?, ?, ?) ";
+        String sql = "Insert into usuario (nome, email, senha, idade) values (?, ?, ?, ?, ?) ";
 
         try (PreparedStatement ps = ConnectionFactory.getConnection().prepareStatement(sql, new String[]{"id"})){
             ps.setString(1, usuarioTO.getName());
             ps.setString(2, usuarioTO.getEmail());
             ps.setString(3, usuarioTO.getPassword());
             ps.setInt(4, usuarioTO.getAge());
-            ps.setString(5, usuarioTO.getProfileType());
 
             int rows = ps.executeUpdate();
             if (rows == 0) {
@@ -57,7 +56,6 @@ public class UsuarioDAO {
                 usuarioTO.setEmail(rs.getString("email"));
                 usuarioTO.setPassword(rs.getString("senha"));
                 usuarioTO.setAge(rs.getInt("idade"));
-                usuarioTO.setProfileType(rs.getString("tipo_perfil"));
             } else{
                 return null;
             }
@@ -71,14 +69,13 @@ public class UsuarioDAO {
     }
 
     public UsuarioTO updateUser(UsuarioTO usuarioTO) {
-        String sql = "Update usuario set nome=?, email=?, senha=?, idade=?, tipo_perfil=? where id=?";
+        String sql = "Update usuario set nome=?, email=?, senha=?, idade=? where id=?";
 
         try (PreparedStatement ps = ConnectionFactory.getConnection().prepareStatement(sql)){
             ps.setString(1, usuarioTO.getName());
             ps.setString(2, usuarioTO.getEmail());
             ps.setString(3, usuarioTO.getPassword());
             ps.setInt(4, usuarioTO.getAge());
-            ps.setString(5, usuarioTO.getProfileType());
             ps.setLong(6, usuarioTO.getId());
 
             if (ps.executeUpdate() > 0) {
@@ -128,7 +125,6 @@ public class UsuarioDAO {
                 usuarioTO.setEmail(rs.getString("email"));
                 usuarioTO.setPassword(rs.getString("senha"));
                 usuarioTO.setAge(rs.getInt("idade"));
-                usuarioTO.setProfileType(rs.getString("tipo_perfil"));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -152,7 +148,6 @@ public class UsuarioDAO {
                     user.setEmail(rs.getString("email"));
                     user.setPassword(rs.getString("senha"));
                     user.setAge(rs.getInt("idade"));
-                    user.setProfileType(rs.getString("tipo_perfil"));
                     return user;
                 }
             }
