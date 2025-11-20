@@ -4,7 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-public class UserTO {
+public class UsuarioTO {
 
     private Long id;
 
@@ -27,10 +27,10 @@ public class UserTO {
     @Size(min = 3, max = 25)
     private String profileType;
 
-    public UserTO() {
+    public UsuarioTO() {
     }
 
-    public UserTO(Long id, String name, String email, String password, Integer age, String profileType) {
+    public UsuarioTO(Long id, String name, String email, String password, Integer age, String profileType) {
         this.id = id;
         this.name = name;
         this.email = email;

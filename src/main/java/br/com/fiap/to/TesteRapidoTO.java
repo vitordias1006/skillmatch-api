@@ -1,11 +1,12 @@
 package br.com.fiap.to;
 
+import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
 
-public class QuickTestTO {
+public class TesteRapidoTO {
 
     private Long testId;
 
@@ -17,13 +18,13 @@ public class QuickTestTO {
     @NotBlank(message = "Resultado é obrigatório")
     private String result;
 
-    @NotNull
+    @FutureOrPresent
     private LocalDate realizationDate;
 
-    public QuickTestTO() {
+    public TesteRapidoTO() {
     }
 
-    public QuickTestTO(Long testId, Long userId, String answers, String result, LocalDate realizationDate) {
+    public TesteRapidoTO(Long testId, Long userId, String answers, String result, LocalDate realizationDate) {
         this.testId = testId;
         this.userId = userId;
         this.answers = answers;
