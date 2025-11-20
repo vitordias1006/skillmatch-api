@@ -120,6 +120,7 @@ public class UsuarioDAO {
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
+                usuarioTO = new UsuarioTO();
                 usuarioTO.setId(rs.getLong("id"));
                 usuarioTO.setName(rs.getString("nome"));
                 usuarioTO.setEmail(rs.getString("email"));
