@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class UsuarioDAO {
 
     public UsuarioTO saveUser(UsuarioTO usuarioTO) {
-        String sql = "Insert into usuario (nome, email, senha, idade) values (?, ?, ?, ?, ?) ";
+        String sql = "Insert into usuario (nome, email, senha, idade) values (?, ?, ?, ?) ";
 
         try (PreparedStatement ps = ConnectionFactory.getConnection().prepareStatement(sql, new String[]{"id"})){
             ps.setString(1, usuarioTO.getName());
