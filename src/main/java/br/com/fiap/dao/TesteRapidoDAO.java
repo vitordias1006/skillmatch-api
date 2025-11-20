@@ -14,7 +14,7 @@ public class TesteRapidoDAO {
     public TesteRapidoTO saveTest(TesteRapidoTO testeRapidoTO) {
         String sql = "insert into TESTE_RAPIDO (id_usuario, respostas, resultado, data_realizacao) values (?, ?, ?, ?) ";
 
-        try(PreparedStatement ps = ConnectionFactory.getConnection().prepareStatement(sql, new String[]{"id_test"})){
+        try(PreparedStatement ps = ConnectionFactory.getConnection().prepareStatement(sql, new String[]{"id_teste"})){
             ps.setLong(1, testeRapidoTO.getUserId());
             ps.setString(2, testeRapidoTO.getAnswers());
             ps.setString(3, testeRapidoTO.getResult());
