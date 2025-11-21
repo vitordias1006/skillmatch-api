@@ -69,14 +69,13 @@ public class UsuarioDAO {
     }
 
     public UsuarioTO updateUser(UsuarioTO usuarioTO) {
-        String sql = "Update usuario set nome=?, email=?, senha=?, idade=? where id=?";
+        String sql = "Update usuario set nome=?, senha=?, idade=? where id=?";
 
         try (PreparedStatement ps = ConnectionFactory.getConnection().prepareStatement(sql)){
             ps.setString(1, usuarioTO.getName());
-            ps.setString(2, usuarioTO.getEmail());
-            ps.setString(3, usuarioTO.getPassword());
-            ps.setInt(4, usuarioTO.getAge());
-            ps.setLong(6, usuarioTO.getId());
+            ps.setString(2, usuarioTO.getPassword());
+            ps.setInt(3, usuarioTO.getAge());
+            ps.setLong(4, usuarioTO.getId());
 
             if (ps.executeUpdate() > 0) {
                 return usuarioTO;

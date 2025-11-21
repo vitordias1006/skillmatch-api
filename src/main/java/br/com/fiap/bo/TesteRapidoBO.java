@@ -4,7 +4,6 @@ import br.com.fiap.dao.TesteRapidoDAO;
 import br.com.fiap.to.TesteRapidoTO;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class TesteRapidoBO {
     private TesteRapidoDAO testeRapidoDAO;
