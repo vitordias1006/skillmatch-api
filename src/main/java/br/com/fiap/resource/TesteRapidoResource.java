@@ -20,7 +20,7 @@ public class TesteRapidoResource {
         Response.ResponseBuilder response = null;
 
         if (resultado != null) {
-            response = Response.created(null);
+            response = Response.status(201);
         } else  {
             response = Response.status(400);
         }
